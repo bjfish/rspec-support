@@ -15,35 +15,38 @@ before_install:
 bundler_args: "--binstubs --standalone --without documentation --path ../bundle"
 script: "script/run_build"
 rvm:
-  - 1.8.7
-  - 1.9.2
-  - 1.9.3
-  - 2.0.0
-  - 2.1
-  - 2.2.10
-  - 2.3.8
-  - 2.4.10
-  - 2.5.8
+  # - 1.8.7
+  # - 1.9.2
+  # - 1.9.3
+  # - 2.0.0
+  # - 2.1
+  # - 2.2.10
+  # - 2.3.8
+  # - 2.4.10
+  # - 2.5.8
   - 2.6.6
-  - 2.7.1
-  - ruby-head
-  - ree
-  - rbx-3
-  - jruby-9.1.7.0 # pin JRuby to this until travis/rvm can install later versions
-  - jruby-head
-  - jruby-1.7
-env:
-  - JRUBY_OPTS='--dev'
-matrix:
-  include:
-    - rvm: jruby-1.7
-      env: JRUBY_OPTS='--dev --1.8'
-  allow_failures:
-    - rvm: jruby-head
-    - rvm: ruby-head
-    - rvm: rbx-3
-  fast_finish: true
+  - truffleruby-head
+  - truffleruby
+  # - 2.7.1
+  # - ruby-head
+  # - ree
+  # - rbx-3
+  # - jruby-9.1.7.0 # pin JRuby to this until travis/rvm can install later versions
+  # - jruby-head
+  # - jruby-1.7
+# env:
+#   - JRUBY_OPTS='--dev'
+# matrix:
+#   include:
+#     - rvm: jruby-1.7
+#       env: JRUBY_OPTS='--dev --1.8'
+#   allow_failures:
+#     - rvm: jruby-head
+#     - rvm: ruby-head
+#     - rvm: rbx-3
+#   fast_finish: true
 branches:
   only:
-    - master
-    - /^\d+-\d+-maintenance$/
+    # - master
+    - truffleruby-ci
+    # - /^\d+-\d+-maintenance$/
