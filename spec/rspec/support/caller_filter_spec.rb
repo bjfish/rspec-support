@@ -43,6 +43,14 @@ module RSpec
         expect(unmatched_from files).to eq(files)
       end
 
+      it "matches internal methods" do
+        files = [
+          "<internal:kernel>:90:in `tap'",
+          "<internal:core> core/kernel.rb:534:in `tap'"
+        ]
+        expect(unmatched_from files).to eq([])
+      end
+
       def in_rspec_support_lib(name)
         root = File.expand_path("../../../../lib/rspec/support", __FILE__)
         dir = "#{root}/#{name}"
